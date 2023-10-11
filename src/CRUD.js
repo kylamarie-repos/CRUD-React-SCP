@@ -71,15 +71,18 @@ export default function CRUD()
     }
 
     const uploadImage = async () => {
-        const storageRef = ref(storage, "images/" + image.item);
+        const storageRef = ref(storage, "images/" + image.name);
         const uploadTask = uploadBytesResumable(storageRef, image);
 
         uploadTask.on("state_changed",
+            // progress function
             (snapshot) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 console.log("Upload " + progress + "% done.");
             },
+            //error function
             (error) => {console.log(error)},
+            // complete upload retrieve URL to upload image
             async () => {
                 const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
                 setImageURL(downloadURL);

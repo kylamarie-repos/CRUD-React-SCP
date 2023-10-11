@@ -5,16 +5,16 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBkjpUmJg0FqUPhPCTG1SG-IWbK-v45BHY",
-  authDomain: "scp-crud-19495.firebaseapp.com",
-  projectId: "scp-crud-19495",
-  storageBucket: "scp-crud-19495.appspot.com",
-  messagingSenderId: "1076575037135",
-  appId: "1:1076575037135:web:6e0bbdb9d5a994bb2839ba"
-};
+    apiKey: "AIzaSyA_4awqTey5KwEOA7Y8HI0qViyRR9FloMA",
+    authDomain: "scp-crud-21c0b.firebaseapp.com",
+    projectId: "scp-crud-21c0b",
+    storageBucket: "scp-crud-21c0b.appspot.com",
+    messagingSenderId: "374101870029",
+    appId: "1:374101870029:web:26710d962f89541e3d3084"
+  };
 
 
-// Initialize Firebase
+// Initializing firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
