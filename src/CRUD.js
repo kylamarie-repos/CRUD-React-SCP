@@ -93,27 +93,25 @@ export default function CRUD()
     return(
         <>
         <div className="card card-body m-2 shadow rounded align-items-start">
-        <input value={dataItem} onChange={(item) => setDataItem(item.target.value)} placeholder="Item" />
-        <br />
-        <br />
-        <input value={dataClassType} onChange={(classtype) => setDataClassType(classtype.target.value)} placeholder="Class" />
-        <br />
-        <br />
-        <input value={dataDescription} onChange={(description) => setDataDescription(description.target.value)} placeholder="Description" />
-        <br />
-        <br />
-        <input value={dataContainment} onChange={(containment) => setDataContainment(containment.target.value)} placeholder="Containment" />
-        <br />
-        <br />
-        <input type="file" onChange={handleImageChange} />
-        {" "}
-        <button onClick={uploadImage}>Upload Image</button>
-        <br />
-        {imageURL && <img src={imageURL} alt="Uploaded Preview" style={{maxWidth: "200px", height: "auto"}} />}
-        <br />
-        <br />
-        {!showDoc?<button onClick={crudCreate}>Create new Document</button>:
-        <button onClick={crudUpdate}>Update Document</button>}
+            <form className="row g-3 align-items-center">
+                <label for="exampleFormControlTextarea1" className="form-label">Item:</label>
+                <input className="form-control" value={dataItem} onChange={(item) => setDataItem(item.target.value)} placeholder="SCP-" />
+                <label for="exampleFormControlTextarea1" className="form-label">Class type:</label>
+                <input className="form-control" value={dataClassType} onChange={(classtype) => setDataClassType(classtype.target.value)} placeholder="Class" />
+                <label for="exampleFormControlTextarea1" className="form-label">Description:</label>
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={dataDescription} onChange={(description) => setDataDescription(description.target.value)} placeholder="Description"></textarea>
+                <label for="exampleFormControlTextarea1" className="form-label">Containment:</label>
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={dataContainment} onChange={(containment) => setDataContainment(containment.target.value)} placeholder="Containment"></textarea>
+                <input className="form-control" type="file" onChange={handleImageChange} />
+                {" "}
+                <button onClick={uploadImage}>Upload Image</button>
+                <br />
+                {imageURL && <img src={imageURL} alt="Uploaded Preview" style={{maxWidth: "200px", height: "auto"}} />}
+                <br />
+                <br />
+                {!showDoc?<button onClick={crudCreate}>Create new Document</button>:
+                <button onClick={crudUpdate}>Update Document</button>}
+            </form>
         </div>
 
         {
