@@ -2,7 +2,7 @@ export default function header()
 {
     return (
         <>
-        <div className="container my-5">
+        <div className="container mb-5 mt-3">
                 <div className="p-4 bg-body-tertiary rounded-3 shadow-sm g-0 row" data-bs-theme="dark">
                     <div className="col-md-2 ms-4">
                         <img src="../images/scp-logo-deco.png" alt="scp-logo" id="logo" className="img-fluid float-start w-75" />
