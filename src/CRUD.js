@@ -49,8 +49,6 @@ export default function CRUD()
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 
-        
-
         const getData = async () => 
         {
             const ourDocsToRead = await getDocs(OurCollection);
@@ -65,9 +63,9 @@ export default function CRUD()
         return () => {
             window.removeEventListener("scroll", handleScroll);
         }
-    }, []);
+    }, [OurCollection]);
 
-    const showEdit = async (id, item, classtype, description, containment) => {
+    const showEdit = async (id, item, classtype, description, containment, imageURL) => {
         document.documentElement.scrollTop = 0;
         setDataItem(item);
         setDataClassType(classtype);
