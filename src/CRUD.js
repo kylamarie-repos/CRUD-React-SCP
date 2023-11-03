@@ -63,7 +63,7 @@ export default function CRUD()
         return () => {
             window.removeEventListener("scroll", handleScroll);
         }
-    }, [OurCollection]);
+    }, []);
 
     const showEdit = async (id, item, classtype, description, containment, imageURL) => {
         document.documentElement.scrollTop = 0;
@@ -103,11 +103,11 @@ export default function CRUD()
         );
     }
 
-    const classtypeToBorderColor = {
-        Safe: 'border-success',
-        Euclid: 'border-primary',
-        Keter: 'border-warning',
-        Thaumiel: 'border-danger',
+    const classtypeToTextColor = {
+        Safe: 'text-success',
+        Euclid: 'text-primary',
+        Keter: 'text-warning',
+        Thaumiel: 'text-danger',
     }
 
     const handleScroll = () => {
@@ -170,9 +170,9 @@ export default function CRUD()
         .slice() // Create a copy of the array to avoid modifying the original
         .sort((a, b) => a.classtype.localeCompare(b.classtype) || a.item.localeCompare(b.item, undefined, { numeric: true })) 
         .map((values) => (
-            <div id="card" className={`card card-body m-2 shadow rounded border border-4 ${classtypeToBorderColor[values.classtype] || 'border-dark' }`} key={values.id}>
+            <div className="card card-body m-2 shadow rounded" key={values.id}>
                 <h1>{values.item}</h1>
-                <h3>{values.classtype}</h3>
+                <h3 className ={`${classtypeToTextColor[values.classtype] || 'text-dark' }`}>{values.classtype}</h3>
                 <p><strong>Description: </strong>{values.description}</p>
                 <p><strong>Containment: </strong>{values.containment}</p>
                 <p>{values.imageURL && <img src={values.imageURL} alt={values.imageURL} style={{maxWidth: "200px", height: "auto"}} />}</p>
@@ -187,7 +187,7 @@ export default function CRUD()
 
 
     <button id="myBtn" className="btn" title="Go to top" onClick={scrollToTop} style={{ display: showButton ? "block" : "none" }} >
-        <img id="scrollImage" src="../images/arrow.gif" alt="Scroll to Top"  />
+        <img id="scrollImage" src="../images/arrow_up.gif" alt="Scroll to Top"  />
     </button>
         </>
     )
